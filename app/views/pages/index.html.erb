@@ -1,2 +1,49 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>タイトル</title>
+  </head>
+  <body>
+    <main>
+      <canvas id="img1"></canvas>
+    </main>
+    <script>
+      
+      //レイヤー1
+      var canvas1 = document.createElement('canvas');//Canvasを作成
+      
+      canvas1.width = 1600;
+      canvas1.width = 900;
+      
+      canvas1.style.position = "absolute";
+      canvas1.style.top = "0";
+      canvas1.style.left = "0";
+      canvas1.style.zIndex = "0";
+      
+      document.body.appendChild(canvas1);//ノードリストに登録
+      var layer1ctx = canvas1.getContext('2d');//CanvasRenderingContext2D 取得
+      
+      //レイヤー2
+      var canvas2 = document.createElement('canvas');//Canvasを作成
+      
+      canvas2.width = 400;
+      canvas2.width = 400;
+      
+      canvas2.style.position = "absolute";
+      canvas2.style.top = "0";
+      canvas2.style.left = "0";
+      canvas2.style.zIndex = "1";
+      
+      document.body.appendChild(canvas2);//ノードリストに登録
+      var layer2ctx = canvas2.getContext('2d');//CanvasRenderingContext2D 取得
+      
+      var img1 = new Image();//新しい画像を作成
+      img1.onload = function(){//画像を読み終わってから
+      layer1ctx.drawImage(img1,0,0);
+      };
+      img1.src = "layer1.png";//表示させたい画像
+      
+    </script>
+  </body>
+</html>
